@@ -186,8 +186,6 @@ const Page = () => {
                 email: user.email,
                 isActive: true,
             };
-
-
             await setDoc(doc(usersCollection, user.uid), newUser);
 
             push("/dashboard");
