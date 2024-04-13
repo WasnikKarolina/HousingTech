@@ -8,7 +8,7 @@ import { UserAuth } from "@/context/AuthContext";
 import React, { useEffect, useState } from "react";
 import {User} from 'lucide-react';
 
-const allowedEmails = ["filippo.vicini2@gmail.com", "chiccofdl05@gmail.com", "enzotrulli2005@gmail.com"];
+const allowedEmails = ["filippo.vicini2@gmail.com", "test1234@test.com"];
 
 interface DashboardNavProps {
   items: NavItem[];

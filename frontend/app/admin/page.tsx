@@ -18,7 +18,7 @@ import {Button} from "@/components/ui/button";
 import {Users, Bid, Item} from "@/components/types/types";
 import {useRouter} from "next/navigation";
 
-const allowedEmails = ["filippo.vicini2@gmail.com", "chiccofdl05@gmail.com", "enzotrulli2005@gmail.com"];
+const allowedEmails = ["filippo.vicini2@gmail.com", "test1234@test.com"];
 
 const Page: React.FC = () => {
     const { user } = UserAuth();
