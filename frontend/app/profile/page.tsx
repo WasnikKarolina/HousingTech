@@ -56,6 +56,7 @@ const Page = () => {
         try {
             await emailSignIn(email, password);
             push("/dashboard")
+
         } catch (error) {
             message.error("Error signing in:" + error);
         }
@@ -241,7 +242,6 @@ const Page = () => {
 
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
-            // Check if the user is admin
             if (user) {
                 try {
                     const userRef = doc(firestore, "users", user.uid);
@@ -268,7 +268,7 @@ const Page = () => {
         <div>
             {loading ? (
                 <Spinner />
-            ) : user && isActive  ? (
+            ) : user   ? (
                 <div className="flex h-screen overflow-hidden">
                     <Sidebar />
                     <div className="flex flex-col w-full overflow-hidden">

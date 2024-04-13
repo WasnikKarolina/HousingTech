@@ -79,7 +79,7 @@ const Page: React.FC = () => {
             ) : (
 
                 <>
-                    {user && isActive ? (
+                    {user git  ? (
                         <div className="flex h-screen overflow-hidden">
                             <Sidebar />
                             <div className="flex flex-col w-full overflow-hidden">
