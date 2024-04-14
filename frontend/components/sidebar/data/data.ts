@@ -13,11 +13,18 @@ export type User = {
 
 export const navItems: NavItem[] = [
   {
-    title: "Home",
-    href: "/dashboard",
+    title: "Contract1",
+    href: "/contract",
     icon: "dashboard",
     label: "Dashboard",
   },
+  {
+    title: "Contract2",
+    href: "/contract2",
+    icon: "dashboard",
+    label: "Dashboard",
+  },
+
 
 
 

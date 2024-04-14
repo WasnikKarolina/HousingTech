@@ -206,7 +206,7 @@ const Page: React.FC = () => {
                                 <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
                                     <div className="flex items-center justify-between space-y-2">
                                         <h2 className="text-3xl font-bold tracking-tight text-[#00103A]">
-                                            Hello Admin, Manage the auction
+                                            Hello Admin, Manage the properties
                                         </h2>
                                     </div>
                                     <br/>
@@ -217,7 +217,7 @@ const Page: React.FC = () => {
                                     </div>
                                     <hr/>
                                     <div className="mt-10">
-                                    <h3 className="text-2xl  mt-3 mb-3 font-bold">Adding to the Auction</h3>
+                                    <h3 className="text-2xl  mt-3 mb-3 font-bold">Adding properties</h3>
                                     <AddItem/>
                                     <AddCategory/>
                                     </div>
