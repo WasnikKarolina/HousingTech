@@ -4,9 +4,9 @@ pragma solidity ^0.8.24;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract PropertyRent is ERC20, Ownable {
-    constructor() ERC20("Property Token", "PROP") {}
-
+contract PropertyToken is ERC20, Ownable {
+    constructor(address initialOwner) Ownable(initialOwner) ERC20("Property Token", "PROP") {}
+    
     function mint(address account, uint256 amount) external onlyOwner {
         _mint(account, amount);
     }
