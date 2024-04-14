@@ -140,7 +140,7 @@ const Page: React.FC = () => {
                             </div>
                         </div>
                     ) : (
-                        <Redrict /> // Redirect if user is not active or not authenticated
+                        <Redrict />
                     )}
                 </>
             )}

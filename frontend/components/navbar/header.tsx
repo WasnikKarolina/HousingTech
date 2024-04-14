@@ -11,7 +11,7 @@ export default function Header() {
           <div className="hidden md:block">
 
               <a>
-                  Alps Home
+                Housing Tech
               </a>
           </div>
           <div className={cn("block sm:!hidden")}>

@@ -56,9 +56,11 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
+        <html>
         <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
                 <RainbowKitProvider>
+
                     <head>
                         <meta name="description" />
                         <style>{`.${inter.className}`}</style>
@@ -68,9 +70,11 @@ export default function RootLayout({
                         {children}
                     </AuthContextProvider>
                     </body>
+
                 </RainbowKitProvider>
             </QueryClientProvider>
         </WagmiProvider>
+        </html>
 
     )
 }
