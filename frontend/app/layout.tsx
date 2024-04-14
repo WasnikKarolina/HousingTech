@@ -1,5 +1,5 @@
 'use client'
-import type { Metadata } from 'next'
+
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { AuthContextProvider } from "@/context/AuthContext";
@@ -56,14 +56,11 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-
-                    <html lang="en">
-                    <WagmiProvider config={config}>
-                        <QueryClientProvider client={queryClient}>
-                            <RainbowKitProvider >
+        <WagmiProvider config={config}>
+            <QueryClientProvider client={queryClient}>
+                <RainbowKitProvider>
                     <head>
-
-                        <meta name="description"  />
+                        <meta name="description" />
                         <style>{`.${inter.className}`}</style>
                     </head>
                     <body className={inter.className}>
@@ -71,10 +68,9 @@ export default function RootLayout({
                         {children}
                     </AuthContextProvider>
                     </body>
-                            </RainbowKitProvider>
-                        </QueryClientProvider>
-                    </WagmiProvider>
-                    </html>
+                </RainbowKitProvider>
+            </QueryClientProvider>
+        </WagmiProvider>
 
     )
 }
