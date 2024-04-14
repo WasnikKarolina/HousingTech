@@ -1,11 +1,11 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-
 contract PropertyToken is ERC20, Ownable {
-constructor() ERC20("Property Token", "PROP") {}
+    constructor() ERC20("Property Token", "PROP") {}
 
     function mint(address account, uint256 amount) external onlyOwner {
         _mint(account, amount);
@@ -13,7 +13,7 @@ constructor() ERC20("Property Token", "PROP") {}
 }
 
 contract RentalMarketplace {
-enum PropertyStatus { Available, Rented }
+    enum PropertyStatus { Available, Rented }
 
     struct Property {
         address owner;
@@ -33,9 +33,10 @@ enum PropertyStatus { Available, Rented }
     }
 
     function listProperty(string memory _location, uint256 _pricePerDay) external {
-        properties[propertyToken.totalSupply()] = Property(msg.sender, _location, _pricePerDay, PropertyStatus.Available);
+        uint256 tokenId = propertyToken.totalSupply();
+        properties[tokenId] = Property(msg.sender, _location, _pricePerDay, PropertyStatus.Available);
         propertyToken.mint(msg.sender, 1);
-        emit PropertyListed(propertyToken.totalSupply() - 1, _location, _pricePerDay);
+        emit PropertyListed(tokenId, _location, _pricePerDay);
     }
 
     function rentProperty(uint256 _tokenId, uint256 _days) external payable {
@@ -45,7 +46,7 @@ enum PropertyStatus { Available, Rented }
         require(msg.value >= totalPrice, "Insufficient funds");
 
         address payable owner = payable(property.owner);
-        owner.transfer(msg.value);
+        owner.transfer(totalPrice);
         property.status = PropertyStatus.Rented;
 
         emit PropertyRented(_tokenId, msg.sender, _days);
