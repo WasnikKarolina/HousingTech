@@ -26,7 +26,7 @@ contract RentalMarketplace {
     PropertyToken public propertyToken;
 
     event PropertyListed(uint256 indexed id, string location, uint256 pricePerDay);
-    event PropertyRented(uint256 indexed id, address renter, uint256 days);
+    event PropertyRented(uint256 indexed id, address renter, uint256 rentaldays);
 
     constructor(address _propertyToken) {
         propertyToken = PropertyToken(_propertyToken);
