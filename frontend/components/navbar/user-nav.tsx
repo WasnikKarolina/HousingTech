@@ -2,62 +2,16 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {UserOutlined} from "@ant-design/icons";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { UserAuth } from "@/context/AuthContext";
-import React, { useEffect, useRef, useState } from "react";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import '@rainbow-me/rainbowkit/styles.css';
-import { WagmiProvider } from 'wagmi';
-import { type Chain } from '@rainbow-me/rainbowkit';
-
-import {
-  getDefaultConfig,
-  RainbowKitProvider,
-} from '@rainbow-me/rainbowkit';
-
-
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../../components/ui/dropdown-menu";
 import {
   QueryClientProvider,
   QueryClient,
 } from "@tanstack/react-query";
+import {UserAuth} from "@/context/AuthContext";
+import {useEffect, useRef, useState} from "react";
+import {getDefaultConfig} from "tailwind-merge";
+import {ConnectButton} from "@rainbow-me/rainbowkit";
 
-const xrp = {
-  id: 1440002 ,
-  name: 'XRPL EVM Sidechain Devnet',
-  iconUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',
-  iconBackground: '#fff',
-  nativeCurrency: { name: 'XRP', symbol: 'XRP', decimals: 18 },
-  rpcUrls: {
-    default: { http: ['https://rpc-evm-sidechain.xrpl.org/'] },
-  },
-  blockExplorers: {
-    default: { name: 'EVM sidechain explorer', url: 'https://evm-sidechain.xrpl.org/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 11_907_934,
-    },
-  },
-} as const satisfies Chain;
-
-const config = getDefaultConfig({
-  appName: 'My RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
-  chains: [xrp],
-  ssr: true, // If your dApp uses server side rendering (SSR)
-});
-
-const queryClient = new QueryClient();
 
 
 export function UserNav() {
@@ -172,7 +126,7 @@ export function UserNav() {
               Log out
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <ConnectButton /> {/* Add the ConnectButton component here */}
+              <ConnectButton />
             </DropdownMenuItem>
             <DropdownMenuItem>
               <ConnectButton />

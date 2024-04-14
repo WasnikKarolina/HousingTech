@@ -1,8 +1,8 @@
-
+'use client'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import {AuthContextProvider} from "@/context/AuthContext";
+import { AuthContextProvider } from "@/context/AuthContext";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 import { WagmiProvider } from 'wagmi';
@@ -13,7 +13,6 @@ import {
     RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
 
-
 import {
     QueryClientProvider,
     QueryClient,
@@ -21,7 +20,7 @@ import {
 
 const queryClient = new QueryClient();
 const xrp = {
-    id: 1440002 ,
+    id: 1440002,
     name: 'XRPL EVM Sidechain Devnet',
     iconUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/52.png',
     iconBackground: '#fff',
@@ -38,43 +37,44 @@ const xrp = {
             blockCreated: 11_907_934,
         },
     },
-} as const satisfies Chain;
+} as const;
 
 const config = getDefaultConfig({
     appName: 'My RainbowKit App',
     projectId: 'YOUR_PROJECT_ID',
     chains: [xrp],
-    ssr: true, // If your dApp uses server side rendering (SSR)
+    ssr: true,
 });
 
-
-
-
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Astas',
-  description: 'Cheaper Now',
-}
 
 
 
 export default function RootLayout({
-                                     children,
+                                       children,
                                    }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-      <WagmiProvider config={config}>
-          <QueryClientProvider client={queryClient}>
-              <RainbowKitProvider >
-      <html lang="en">
-      <AuthContextProvider>
-        <body className={inter.className}>{children}</body>
-      </AuthContextProvider>
-      </html>
-</RainbowKitProvider>
-</QueryClientProvider>
-</WagmiProvider>
-  )
+    return (
+
+                    <html lang="en">
+                    <WagmiProvider config={config}>
+                        <QueryClientProvider client={queryClient}>
+                            <RainbowKitProvider >
+                    <head>
+
+                        <meta name="description"  />
+                        <style>{`.${inter.className}`}</style>
+                    </head>
+                    <body className={inter.className}>
+                    <AuthContextProvider>
+                        {children}
+                    </AuthContextProvider>
+                    </body>
+                            </RainbowKitProvider>
+                        </QueryClientProvider>
+                    </WagmiProvider>
+                    </html>
+
+    )
 }

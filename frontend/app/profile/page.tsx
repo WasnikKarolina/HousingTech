@@ -37,6 +37,7 @@ import {
 import { cn } from "@/lib/utils";
 import Sidebar from "@/components/sidebar/sidebar";
 import Header from "@/components/navbar/header";
+import {ConnectButton} from "@rainbow-me/rainbowkit";
 
 const Page = () => {
 
